@@ -8,9 +8,14 @@ jobs:
       uses: actions/checkout@master
 
     - name: Start Server
-      run: |
-        java -Xmx2048m -Xms1024m -jar "server.jar"
-
+      run: source ubuntu-start.sh
+      
+    - name: Start SSH via tmate
+      uses: P3TERX/ssh2actions@main
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    
     - name: Setup Deploy Private Key
       env:
         WORLD_DEPLOY_PRIVATE_KEY: ${{ secrets.DEPLOY_SECRET_KEY }}
