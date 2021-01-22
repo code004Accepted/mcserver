@@ -9,7 +9,7 @@ jobs:
 
     - name: Start Server
       run: |
-        java -Xmx2048MB -Xms1024MB -jar "server.jar"
+        java -Xmx2048m -Xms1024m -jar "server.jar"
 
     - name: Setup Deploy Private Key
       env:
