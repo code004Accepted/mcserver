@@ -28,5 +28,6 @@ jobs:
 
     - name: Save World
       run: |
+        git add *
         git commit -m "World Commit"
         git push -u origin master
